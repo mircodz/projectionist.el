@@ -5,14 +5,14 @@
 
 ;; Defaults
 (defvar projectionist-heuristics
-  '(("src/*.cpp"     "../include/{}.hpp")
-    ("include/*.hpp" "../src/{}.cpp")
-    ("*.cpp"         "{}.hpp")
-    ("*.hpp"         "{}.cpp")))
-    
+  '((c++-mode . (("src/*.cpp"     "../include/{}.hpp")
+                 ("include/*.hpp" "../src/{}.cpp")))
+
+    (go-mode . (("*.go"      "{}_test.go")
+                ("*_test.go" "{}.go")))))
+                
 (global-set-key [f1] 'projectionist-alternative)
 ```
 
 # todo
-- Context aware heuristics (major mode based)
-- Better filepath support
+- Support for more complex rules
